@@ -1421,8 +1421,10 @@ totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite {
 
 -(void) operationSucceeded {
   
-  for(MKNKResponseBlock responseBlock in self.responseBlocks)
+  for(int i = 0; i < [self.responseBlocks count]; ++i) {
+    MKNKResponseBlock responseBlock = self.responseBlocks[i];
     responseBlock(self);
+  }
 }
 
 -(void) showLocalNotification {
